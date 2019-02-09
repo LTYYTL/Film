@@ -1,2 +1,20 @@
 <!--pages/home/home.wxml-->
-<text>hello</text>
+<view class='all'>
+  <image class='filmImage' src='../image/p449619623.jpg'></image>
+  <view class='filmName'>复仇者联盟3：无限战争</view>
+  <view class='user-film'>
+    <image class='userImage' src='../image/head.jpg'></image>
+    <view class='userName'>史密斯给你推荐了一部电影</view>
+  </view>
+</view>
+<view class='bottom'>
+  <view class='hot'>
+      <image class='hotImage' src='../image/hot.png'></image>
+      <view class='hotTitle'>热门</view>
+  </view>
+  <view class='my'>
+      <image class='myImage' src='../image/user.png'></image>
+      <view class='mytTitle'>我的</view>
+  </view>
+</view>
+
