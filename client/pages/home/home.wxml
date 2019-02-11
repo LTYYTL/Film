@@ -8,7 +8,7 @@
   </view>
 </view>
 <view class='bottom'>
-  <view class='hot'>
+  <view class='hot' bindtap='goFilmList'>
       <image class='hotImage' src='../image/hot.png'></image>
       <view class='hotTitle'>热门</view>
   </view>

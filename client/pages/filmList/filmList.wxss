@@ -1,1 +1,33 @@
 /* pages/filmList/filmList.wxss */
+page{
+  background-color: rgb(241, 241, 241);
+}
+.film-card{
+  background-color:white;
+  width: 650rpx;
+  height: 270rpx;
+  display: flex;
+  margin-top: 50rpx;
+  margin-bottom: 25rpx;
+  margin-left: 50rpx;
+  margin-right: 50rpx;
+}
+.filmImage{ 
+  width: 200rpx;
+  height: 270rpx;
+}
+
+.filmTitle{
+  margin-top: 70rpx;
+  margin-left: 50rpx;
+  font-size: 35rpx;
+  line-height: 49rpx;
+  font-weight: 800;
+}
+
+.filmType{
+  font-size: 30rpx;
+  line-height: 42rpx;
+  margin-top: 50rpx;
+  margin-left: 50rpx;
+}
