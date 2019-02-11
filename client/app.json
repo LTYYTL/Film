@@ -1,8 +1,8 @@
 {
   "pages":[
     "pages/home/home",
-    "pages/filmList/filmList",
     "pages/filmInfo/filmInfo",
+    "pages/filmList/filmList",
     "pages/reviewList/reviewList",
     "pages/reviewInfo/reviewInfo",
     "pages/reviewEitd/reviewEitd",

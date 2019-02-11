@@ -52,7 +52,6 @@
 }
 
 .hot{
-
   display: flex;
   padding-top:  35rpx;
   padding-left: 130rpx;

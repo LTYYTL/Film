@@ -3,7 +3,7 @@
   <image class='filmImage' src='../image/p449619623.jpg'></image>
   <view class='filmName'>复仇者联盟3：无限战争</view>
   <view class='user-film'>
-    <image class='userImage' src='../image/head.jpg'></image>
+    <image class='userImage' src='../image/p449619623.jpg'></image>
     <view class='userName'>史密斯给你推荐了一部电影</view>
   </view>
 </view>
