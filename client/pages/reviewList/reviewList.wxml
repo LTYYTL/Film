@@ -1,2 +1,24 @@
 <!--pages/reviewList/reviewList.wxml-->
-<text>pages/reviewList/reviewList.wxml</text>
+<view class='allRow'>
+  <navigator class='review-card'>
+    <view class='user'>
+      <image class='userHead' src='../image/p449619623.jpg'></image>
+      <view class='userName'>名字</view>
+    </view>
+    <view class='reviewConant'>这部电影还是很不错的,真是太好看了，怎么这么好看呢，值得去看</view>
+  </navigator>
+  <navigator class='review-card'>
+    <view class='user'>
+      <image class='userHead' src='../image/p449619623.jpg'></image>
+      <view class='userName'>名字</view>
+    </view>
+    <view class='reviewConant'>这部电影还是很不错的</view>
+  </navigator>
+  <navigator class='review-card'>
+    <view class='user'>
+      <image class='userHead' src='../image/p449619623.jpg'></image>
+      <view class='userName'>名字</view>
+    </view>
+    <view class='reviewConant'>这部电影还是很不错的</view>
+  </navigator>
+</view>

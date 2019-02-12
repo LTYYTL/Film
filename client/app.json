@@ -1,9 +1,10 @@
 {
   "pages":[
+    "pages/reviewList/reviewList",
     "pages/home/home",
     "pages/filmInfo/filmInfo",
     "pages/filmList/filmList",
-    "pages/reviewList/reviewList",
+    
     "pages/reviewInfo/reviewInfo",
     "pages/reviewEitd/reviewEitd",
     "pages/reviewShow/reviewShow",

@@ -1,1 +1,44 @@
 /* pages/reviewList/reviewList.wxss */
+page{
+  background-color: rgb(241, 241, 241);
+}
+
+.review-card{
+  background-color: white;
+  height: 250rpx;
+  border: 2rpx solid rgb(221, 221, 221);
+}
+
+.review-card:first-child{
+  margin-top: 50rpx;
+}
+
+.user{
+  display: flex;
+  padding-left: 70rpx;
+  margin-top: 30rpx;
+}
+
+.userHead{
+  width: 100rpx;
+  height: 100rpx;
+  margin-right: 10rpx;
+  flex-shrink: 0;
+  border-radius: 50%;
+}
+
+.userName{
+  margin: 20rpx;
+}
+
+.reviewConant{
+  font-size: 30rpx;
+  line-height: 42rpx;
+  margin-left: 90rpx;
+  margin-right: 90rpx;
+  margin-top: 25rpx;
+  overflow:hidden; /*超出一行文字自动隐藏 */
+  text-overflow:ellipsis;/* 文字隐藏后添加省略号 */
+  white-space:nowrap; /*强制不换行*/
+
+}
