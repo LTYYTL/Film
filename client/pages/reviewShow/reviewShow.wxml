@@ -1,2 +1,29 @@
 <!--pages/reviewShow/reviewShow.wxml-->
-<text>pages/reviewShow/reviewShow.wxml</text>
+<view class='all'>
+  <view class='film'>
+      <view class='filmTitle'>复仇者联盟</view>
+      <view class='review'>
+          <view class='user'>
+              <image class='userHead' src='../image/p449619623.jpg'></image>
+              <view class='userName'>徐妍的影评</view>
+          </view>
+          <view class='info'>
+            <image class='contantImage' src='../image/contant.png'></image>
+            <scroll-view scroll-y="true" class='reviewInfo'>
+              dassssssssssssssssssssssssssssssssssssssssssssssssssssss
+            </scroll-view>
+          </view>
+      </view>
+      <view class='btns'>
+          <view class='collectionBtn'>
+              <image class='collectionImage' src='../image/delete.png'></image>
+              <view class='collectionReview'>重新编辑</view>
+          </view>
+          <view class='addBtn'>
+              <image class='addImage' src='../image/share.png'></image>
+              <view class='addReview'>发布影评</view>
+          </view>
+      </view>
+  </view>
+  <image class='filmImage' src='../image/p449619623.jpg'></image>
+</view>
