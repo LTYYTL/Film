@@ -1,2 +1,15 @@
 <!--pages/reviewEitd/reviewEitd.wxml-->
-<text>pages/reviewEitd/reviewEitd.wxml</text>
+<view class='all'>
+  <view class='film'>
+      <view class='filmTitle'>复仇者联盟</view>
+      <view class='review'>
+          <input type='text' confirm-type='done' value='请输入你的影评内容' class='inputText'></input>
+      </view>
+      <view class='btns'>
+        <image class='radioImage' src='../image/radio.png'></image>
+        <view class='radioContant'>录音</view>
+      </view>
+  </view>
+  <image class='filmImage' src='../image/p449619623.jpg'></image>
+  <view class='finishBtn'>完成</view>
+</view>

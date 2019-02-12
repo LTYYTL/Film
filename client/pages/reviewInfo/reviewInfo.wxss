@@ -109,15 +109,26 @@ page{
 }
 
 .reviewInfo{
-  width: 510rpx;
+  width: 450rpx;
   height: 350rpx;
-  font-size: 35rpx;
-  line-height: 49rpx;
+  font-size: 30rpx;
+  line-height: 42rpx;
   display: flex;
   align-items: center;
   justify-content: center;
   margin-top: 40rpx;
-  margin-left: 70rpx;
-  margin-right:70rpx;
-  word-break:break-all
+  margin-left: 50rpx;
+  margin-right:50rpx;
+  word-break:break-all；
+}
+
+.info{
+  display: flex;
+}
+
+.contantImage{
+  margin-top: 40rpx;
+  margin-left:50rpx; 
+  width: 70rpx;
+  height: 70rpx;
 }

@@ -7,9 +7,12 @@
               <image class='userHead' src='../image/p449619623.jpg'></image>
               <view class='userName'>徐妍的影评</view>
           </view>
-          <scroll-view scroll-y="true" class='reviewInfo'>
-            dassssssssssssssssssssssssssssssssssssssssssssssssssssss
-           </scroll-view>
+          <view class='info'>
+            <image class='contantImage' src='../image/contant.png'></image>
+            <scroll-view scroll-y="true" class='reviewInfo'>
+              dassssssssssssssssssssssssssssssssssssssssssssssssssssss
+            </scroll-view>
+          </view>
       </view>
       <view class='btns'>
           <view class='collectionBtn'>

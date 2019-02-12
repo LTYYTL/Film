@@ -1,1 +1,84 @@
 /* pages/reviewEitd/reviewEitd.wxss */
+page{
+  background-color: rgb(241, 241, 241);
+}
+
+.filmImage{
+  position: absolute;
+  top: 3%;
+  left: 275rpx;
+  width: 230rpx;
+  height: 300rpx;
+}
+
+.film{
+  position: absolute;
+  background-color: white;
+  height: 80%;
+  width: 650rpx;
+  margin-top: 90rpx;
+  margin-left: 50rpx;
+  margin-right: 50rpx;
+}
+
+.filmTitle{
+  font-size: 40rpx;
+  line-height: 56rpx;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 260rpx;
+  margin-bottom: 15rpx;
+}
+
+
+.btns{
+  display: flex;
+  width: 200rpx;
+  height: 100rpx;
+  margin-left: 225rpx;
+  margin-right: 275rpx;
+  margin-top: 30rpx;
+  border: 2rpx solid rgb(221, 221, 221);
+ 
+  align-items: center;
+  justify-content: center;
+}
+
+.finishBtn{
+  position: absolute;
+  top:92%;
+  height: 8%;
+  width: 100%;
+  background-color: rgb(3, 202, 3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+}
+
+.review{
+  margin-top: 50rpx;
+  height: 300rpx;
+}
+
+.inputText{
+  margin-left: 70rpx;
+  margin-right: 70rpx;
+  overflow:hidden; /*超出一行文字自动隐藏 */
+  text-overflow:ellipsis;/* 文字隐藏后添加省略号 */
+  white-space:nowrap; /*强制不换行*/
+
+}
+
+.radioImage{
+  width: 55rpx;
+  height: 55rpx;
+  margin-right: 10rpx;
+}
+
+
+
+
+
