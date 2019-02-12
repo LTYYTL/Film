@@ -22,3 +22,4 @@
     <view class='reviewConant'>这部电影还是很不错的</view>
   </navigator>
 </view>
+<view class='backHome'>回到首页</view>

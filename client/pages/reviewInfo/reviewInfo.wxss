@@ -1,1 +1,123 @@
 /* pages/reviewInfo/reviewInfo.wxss */
+page{
+  background-color: rgb(241, 241, 241);
+}
+
+.filmImage{
+  position: absolute;
+  top: 3%;
+  left: 275rpx;
+  width: 230rpx;
+  height: 300rpx;
+}
+
+.film{
+  position: absolute;
+  background-color: white;
+  height: 85%;
+  margin-top: 90rpx;
+  margin-left: 50rpx;
+  margin-right: 50rpx;
+}
+
+.filmTitle{
+  font-size: 40rpx;
+  line-height: 56rpx;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 260rpx;
+  margin-bottom: 15rpx;
+}
+
+.filmContant{
+  font-size: 35rpx;
+  line-height: 49rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 40rpx;
+  padding-left: 70rpx;
+  padding-right:70rpx;
+}
+
+.btns{
+  display: flex;
+}
+
+.collectionBtn{
+  width: 250rpx;
+  height: 60rpx;
+  position: absolute;
+  top: 87%;
+  display: flex;
+  margin-left: 50rpx;
+  padding: 10rpx;
+  align-items: center;
+  justify-content: center;
+  border:1px solid rgb(178, 218, 228);
+}
+
+.collectionImage{
+  width: 55rpx;
+  height: 55rpx;
+  margin-right: 10rpx;
+}
+
+.addBtn{
+ width: 250rpx;
+  height: 60rpx;
+  position: absolute;
+  top: 87%;
+  display: flex;
+  margin-left: 50rpx;
+  padding: 10rpx;
+  align-items: center;
+  justify-content: center;
+  left: 45%;
+  border:1px solid rgb(178, 218, 228);
+}
+
+.addImage{
+  width: 55rpx;
+  height: 55rpx;
+  margin-right: 10rpx;
+}
+
+.user{
+  display: flex;
+  margin-top: 20rpx;
+  margin-left: 50rpx;
+  height: 100rpx;
+}
+
+.userHead{
+  width: 100rpx;
+  height: 100rpx;
+  margin-right: 30rpx;
+  flex-shrink: 0;
+  border-radius: 50%;
+}
+
+.userName{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 35rpx;
+  line-height: 49rpx;
+}
+
+.reviewInfo{
+  width: 510rpx;
+  height: 350rpx;
+  font-size: 35rpx;
+  line-height: 49rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 40rpx;
+  margin-left: 70rpx;
+  margin-right:70rpx;
+  word-break:break-all
+}
