@@ -1,1 +1,92 @@
 /* pages/user/user.wxss */
+page{
+  background-color: rgb(241, 241, 241);
+}
+
+.top{
+  color: orange;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 30rpx;
+  line-height: 42rpx;
+  width: 750rpx;
+  height: 200rpx;
+}
+
+.film-card{
+  width: 650rpx;
+  height: 270rpx;
+  margin-top: 25rpx;
+  margin-right: 50rpx;
+  margin-left: 50rpx;
+  margin-bottom: 25rpx;
+  background-color: white;
+  display: flex;
+  border:1px solid rgb(178, 218, 228);
+}
+
+.filmImage{ 
+  width: 200rpx;
+  height: 270rpx;
+}
+
+.filmInfo{
+  width: 350rpx;
+  margin-left: 40rpx;
+  margin-right: 40rpx;
+  margin-top: 30rpx;
+  margin-bottom: 30rpx;
+}
+
+.filmTitle{
+  font-size: 35rpx;
+  line-height: 49rpx;
+  font-weight: 800;
+  margin-bottom: 20rpx;
+  
+}
+
+.filmContant{
+  font-size: 25rpx;
+  line-height: 35rpx;
+  height: 70rpx;
+  width: 360rpx;
+  margin-bottom: 20rpx;
+  overflow: hidden;
+  word-break: break-all;
+  text-overflow:ellipsis;/* 文字隐藏后添加省略号 */
+  
+}
+
+.user{
+  display: flex;
+}
+
+.userHead{
+  background-color: red;
+  width: 70rpx;
+  height: 70rpx;
+  margin-right: 30rpx;
+  flex-shrink: 0;
+  border-radius: 50%;
+}
+
+.userName{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 25rpx;
+  line-height: 35rpx;
+}
+
+.backHome{
+  width: 750rpx;
+  height: 15%;
+  position: relative;
+  background-color: white;
+  top: 90%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

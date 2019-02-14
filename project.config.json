@@ -8,5 +8,32 @@
 	},
 	"appid": "wxc355aee7f37396be",
 	"projectname": "film",
-	"condition": {}
+	"condition": {
+		"search": {
+			"current": -1,
+			"list": []
+		},
+		"conversation": {
+			"current": -1,
+			"list": []
+		},
+		"plugin": {
+			"current": -1,
+			"list": []
+		},
+		"game": {
+			"list": []
+		},
+		"miniprogram": {
+			"current": 0,
+			"list": [
+				{
+					"id": -1,
+					"name": "我的",
+					"pathName": "pages/user/user",
+					"scene": null
+				}
+			]
+		}
+	}
 }
