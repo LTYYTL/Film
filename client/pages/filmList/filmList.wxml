@@ -1,38 +1,11 @@
 <!--pages/filmList/filmList.wxml-->
-<view class='allRow'>
-  <navigator class='film-card'>
-    <image class='filmImage' src='../image/p449619623.jpg'></image>
-    <view class='filmInfo'>
-      <view class='filmTitle'>复仇者联盟3</view>
-      <view class='filmType'>类型：动作</view>
+    <view class='allRow' wx:for='{{filmList}}'  >
+        <navigator class='film-card' wx:for='{{[filmList[index]]}}' wx:for-item='pitem' url='/pages/filmInfo/filmInfo?id={{pitem.id}}' >
+          <image class='filmImage' src='{{pitem.image}}'></image>
+          <view class='filmInfo'>
+            <view class='filmTitle'>{{pitem.title}}</view>
+            <view class='filmType'>类型：{{pitem.category}}</view>
+          </view>
+        </navigator>
     </view>
-  </navigator>
-  <navigator class='film-card'>
-    <image class='filmImage' src='../image/p449619623.jpg'></image>
-    <view class='filmInfo'>
-      <view class='filmTitle'>复仇者联盟3</view>
-      <view class='filmType'>类型：动作</view>
-    </view>
-  </navigator>
-  <navigator class='film-card'>
-    <image class='filmImage' src='../image/p449619623.jpg'></image>
-    <view class='filmInfo'>
-      <view class='filmTitle'>复仇者联盟3</view>
-      <view class='filmType'>类型：动作</view>
-    </view>
-  </navigator>
-   <navigator class='film-card'>
-    <image class='filmImage' src='../image/p449619623.jpg'></image>
-    <view class='filmInfo'>
-      <view class='filmTitle'>复仇者联盟3</view>
-      <view class='filmType'>类型：动作</view>
-    </view>
-  </navigator>
-   <navigator class='film-card'>
-    <image class='filmImage' src='../image/p449619623.jpg'></image>
-    <view class='filmInfo'>
-      <view class='filmTitle'>复仇者联盟3</view>
-      <view class='filmType'>类型：动作</view>
-    </view>
-  </navigator>
-</view>
+

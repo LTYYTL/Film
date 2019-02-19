@@ -1,18 +1,18 @@
 <!--pages/filmInfo/filmInfo.wxml-->
 <view class='all'>
   <view class='film'>
-      <view class='filmTitle'>复仇者联盟</view>
-      <view class='filmContant'>爱的别激动哈领导建瓯的骄傲的啊觉得垃圾的骄傲的；啊觉得觉得句啊觉得</view>
+      <view class='filmTitle'>{{film.title}}</view>
+      <view class='filmContant'>{{film.description}}</view>
       <view class='btns'>
-          <view class='findBtn'>
+          <view class='findBtn' bindtap='goReview'>
               <image class='findImage' src='../image/look.png'></image>
               <view class='findReview'>查看影评</view>
           </view>
-          <view class='addBtn'>
+          <view class='addBtn' bindtap='goAddReview'>
               <image class='addImage' src='../image/input.png'></image>
               <view class='addReview'>添加影评</view>
           </view>
       </view>
   </view>
-  <image class='filmImage' src='../image/p449619623.jpg'></image>
+  <image class='filmImage' src='{{film.image}}'></image>
 </view>

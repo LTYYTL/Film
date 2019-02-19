@@ -9,7 +9,7 @@ page{
   border: 2rpx solid rgb(221, 221, 221);
 }
 
-.review-card:first-child{
+.review-card:first{
   margin-top: 50rpx;
 }
 

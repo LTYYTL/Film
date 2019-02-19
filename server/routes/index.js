@@ -31,5 +31,13 @@ router.post('/tunnel', controllers.tunnel.post)
 router.get('/message', controllers.message.get)
 // POST 用来处理微信转发过来的客服消息
 router.post('/message', controllers.message.post)
+//GET用来获取全部电影
+router.get('/film', controllers.film.list)
+//GET 获取某一个电影
+router.get('/film/:id',controllers.film.info)
+//GET 获取某一个电影的影评
+router.get('/review/:id', controllers.review.list)
+//GET用来获取用户信息
+router.get('/my/:id', controllers.my.info)
 
 module.exports = router

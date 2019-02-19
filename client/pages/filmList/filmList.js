@@ -1,18 +1,47 @@
 // pages/filmList/filmList.js
+const qcloud = require('../../vendor/wafer2-client-sdk/index')
+const config = require('../../config')
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    filmList:[],
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+   this.getFilmList();
+  },
 
+  getFilmList(){
+    wx.showLoading({
+      title: '电影数据加载中...',
+    })
+    qcloud.request({
+      url: config.service.filmList,
+      success: result => {
+        wx.hideLoading();
+        if(!result.data.code){
+          this.setData({
+            filmList: result.data.data,
+          })
+        }else{
+          wx.showToast({
+            title: '电影数据加载失败',
+          })
+        }
+      },
+      fail: result => {
+        wx.hideLoading();
+        wx.showToast({
+          title: '电影数据加载失败',
+        })
+      }
+    })
   },
 
   /**

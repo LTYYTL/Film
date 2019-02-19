@@ -1,20 +1,42 @@
 <!--pages/home/home.wxml-->
-<view class='all'>
-  <image class='filmImage' src='../image/p449619623.jpg'></image>
-  <view class='filmName'>复仇者联盟3：无限战争</view>
-  <view class='user-film'>
-    <image class='userImage' src='../image/p449619623.jpg'></image>
-    <view class='userName'>史密斯给你推荐了一部电影</view>
-  </view>
+<view wx:if="{{isHide}}">
+    <view wx:if="{{canIUse}}" >
+        <view class='header'>
+            <image src='../image/wx_login.png'></image>
+        </view>
+ 
+        <view class='content'>
+            <view>申请获取以下权限</view>
+            <text>获得你的公开信息(昵称，头像等)</text>
+        </view>
+ 
+        <button class='bottom' type='primary' open-type="getUserInfo" lang="zh_CN" bindgetuserinfo="bindGetUserInfo">
+            授权登录
+        </button>
+    </view>
+    <view wx:else>请升级微信版本</view>
 </view>
-<view class='bottom'>
-  <view class='hot' bindtap='goFilmList'>
-      <image class='hotImage' src='../image/hot.png'></image>
-      <view class='hotTitle'>热门</view>
-  </view>
-  <view class='my'>
-      <image class='myImage' src='../image/user.png'></image>
-      <view class='mytTitle'>我的</view>
-  </view>
+ 
+<view wx:else>
+    <view class='all'>
+      <image class='filmImage' src='../image/p449619623.jpg'></image>
+      <view class='filmName'>复仇者联盟3：无限战争</view>
+      <view class='user-film'>
+        <image class='userImage' src='../image/p449619623.jpg'></image>
+        <view class='userName'>史密斯给你推荐了一部电影</view>
+      </view>
+    </view>
+      <view class='bottoms'>
+        <view class='hot' bindtap='goFilmList'>
+            <image class='hotImage' src='../image/hot.png'></image>
+            <view class='hotTitle'>热门</view>
+        </view>
+        <view class='my' bindtap='goMy'>
+            <image class='myImage' src='../image/user.png'></image>
+            <view class='mytTitle'>我的</view>
+        </view>
+      </view>
 </view>
+   
+
 

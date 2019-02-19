@@ -19,7 +19,7 @@ page{
 
 .filmTitle{
   margin-top: 70rpx;
-  margin-left: 50rpx;
+  margin-left: 30rpx;
   font-size: 35rpx;
   line-height: 49rpx;
   font-weight: 800;
@@ -29,5 +29,5 @@ page{
   font-size: 30rpx;
   line-height: 42rpx;
   margin-top: 50rpx;
-  margin-left: 50rpx;
+  margin-left: 30rpx;
 }

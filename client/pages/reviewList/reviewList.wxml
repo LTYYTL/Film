@@ -1,25 +1,11 @@
 <!--pages/reviewList/reviewList.wxml-->
-<view class='allRow'>
-  <navigator class='review-card'>
+<view class='allRow' wx:for='{{userInfo}}'>
+  <navigator class='review-card' wx:for='{{[userInfo[index]]}}' wx:for-item='pitem'>
     <view class='user'>
-      <image class='userHead' src='../image/p449619623.jpg'></image>
-      <view class='userName'>名字</view>
+      <image class='userHead' src='{{pitem.userImage}}'></image>
+      <view class='userName'>{{pitem.userName}}</view>
     </view>
-    <view class='reviewConant'>这部电影还是很不错的,真是太好看了，怎么这么好看呢，值得去看</view>
-  </navigator>
-  <navigator class='review-card'>
-    <view class='user'>
-      <image class='userHead' src='../image/p449619623.jpg'></image>
-      <view class='userName'>名字</view>
-    </view>
-    <view class='reviewConant'>这部电影还是很不错的</view>
-  </navigator>
-  <navigator class='review-card'>
-    <view class='user'>
-      <image class='userHead' src='../image/p449619623.jpg'></image>
-      <view class='userName'>名字</view>
-    </view>
-    <view class='reviewConant'>这部电影还是很不错的</view>
+    <view class='reviewConant'>{{pitem.reviewContant}}</view>
   </navigator>
 </view>
-<view class='backHome'>回到首页</view>
+<view class='backHome' bindtap='goBackHome'>回到首页</view>

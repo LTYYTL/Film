@@ -3,7 +3,7 @@
  */
 
 // 此处主机域名修改成腾讯云解决方案分配的域名
-var host = 'https://123456.qcloud.la';
+var host = 'https://mjndpgl1.qcloud.la';
 
 var config = {
 
@@ -21,7 +21,19 @@ var config = {
         tunnelUrl: `${host}/weapp/tunnel`,
 
         // 上传图片接口
-        uploadUrl: `${host}/weapp/upload`
+        uploadUrl: `${host}/weapp/upload`,
+        
+        //获取所有电影
+        filmList: `${host}/weapp/film`,
+
+        //获取指定电影信息
+        filmInfo: `${host}/weapp/film/`,
+
+        //获取指定电影信息
+        reviewList: `${host}/weapp/review/`,
+
+         //获取指定用户信息
+        userInfo: `${host}/weapp/my/`
     }
 };
 
