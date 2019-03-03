@@ -9,7 +9,9 @@ Page({
   data: {
     //判断小程序的API，回调，参数，组件等是否在当前版本可用。
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
-    isHide: false
+    isHide: false,
+    userName:'',
+    userImage:''
   },
 
   goFilmList(){
@@ -24,6 +26,68 @@ Page({
     })
   },
 
+  addMy(){
+    wx.showLoading({
+      title: '登录中...',
+    })
+    let userName = this.data.userName
+    let userImage = this.data.userImage
+
+    qcloud.request({
+      url: config.service.addUser,
+      method: 'POST',
+      login: true,
+      data: {
+        userName: userName,
+        userImage: userImage
+      },
+      success: result => {
+        wx.hideLoading()
+
+        let data = result.data
+        console.log(data)
+
+        if (!data.code) {
+          wx.showToast({
+            title: '登录成功',
+          })
+
+        } else {
+          wx.showToast({
+            icon: 'none',
+            title: '登录失败',
+          })
+        }
+      },
+      fail: () => {
+        wx.hideLoading()
+
+        wx.showToast({
+          icon: 'none',
+          title: '登录失败',
+        })
+      }
+    })
+   
+  },
+
+  log(){
+    qcloud.setLoginUrl(config.service.loginUrl)
+    qcloud.login({
+      success: result => {
+        console.log('success')
+        this.setData({
+          userName:result.nickName,
+          userImage:result.avatarUrl
+        })
+        this.addMy()
+      },
+      fail: result => {
+        console.log('fail')
+        console.log(result)
+      }
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */
@@ -33,29 +97,18 @@ Page({
     wx.getSetting({
       success: function (res) {
         if (res.authSetting['scope.userInfo']) {
-          wx.getUserInfo({
-            success: function (res) {
-              // 用户已经授权过,不需要显示授权页面,所以不需要改变 isHide 的值
-              // 根据自己的需求有其他操作再补充
-              // 我这里实现的是在用户授权成功后，调用微信的 wx.login 接口，从而获取code
-              wx.login({
-                success: res => {
-                  // 获取到用户的 code 之后：res.code
-                  cosole.log("用户的code:" + res.code);
-                  // 可以传给后台，再经过解析获取用户的 openid
-                  // 或者可以直接使用微信的提供的接口直接获取 openid ，方法如下：
-                  // wx.request({
-                  //     // 自行补上自己的 APPID 和 SECRET
-                  //     url: 'https://api.weixin.qq.com/sns/jscode2session?appid=自己的APPID&secret=自己的SECRET&js_code=' + res.code + '&grant_type=authorization_code',
-                  //     success: res => {
-                  //         // 获取到用户的 openid
-                  //         console.log("用户的openid:" + res.data.openid);
-                  //     }
-                  // });
-                }
-              });
+          qcloud.setLoginUrl(config.service.loginUrl)
+          qcloud.login({
+            success: result => {
+             console.log('success')
+             console.log(result)
+            },
+            fail: result => {
+              console.log('fail')
+              console.log(result)
             }
-          });
+          })
+
         } else {
           // 用户没有授权
           // 改变 isHide 的值，显示授权页面
@@ -125,6 +178,7 @@ Page({
       console.log("用户的信息如下：");
       console.log(e.detail.userInfo);
       //授权成功后,通过改变 isHide 的值，让实现页面显示出来，把授权页面隐藏起来
+      that.log()
       that.setData({
         isHide: false
       });

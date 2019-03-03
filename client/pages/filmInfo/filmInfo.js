@@ -11,6 +11,7 @@ Page({
     id:''
   },
 
+//跳转到影评页
   goReview(){
     let id = 0;
     id = this.data.id;
@@ -19,6 +20,7 @@ Page({
     })
   },
 
+  //添加影评
   goAddReview() {
     let id = 0;
     id = this.data.id;

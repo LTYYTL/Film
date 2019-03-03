@@ -1,12 +1,15 @@
 const CONF = {
     port: '5757',
     rootPathname: '',
+    qcloudAppId: '1258497394',
+    qcloudSecretId: 'AKIDUm8Uigvwx4zpjPnnHgxH1NBlvx15qpbG',
+    qcloudSecretKey: 'dF1Z4KURSFmBPvCwTpv9OWB6mJQZY15R',
 
     // 微信小程序 App ID
-    appId: 'appid',
+  appId: 'wxc355aee7f37396be',
 
     // 微信小程序 App Secret
-    appSecret: '',
+  appSecret: '',
 
     // 是否使用腾讯云代理登录小程序
     useQcloudLogin: true,
@@ -20,8 +23,8 @@ const CONF = {
         host: 'localhost',
         port: 3306,
         user: 'root',
-        db: 'cAuth',
-        pass: '密码',
+        db: 'movies',
+        pass: 'l991362541',
         char: 'utf8mb4'
     },
 

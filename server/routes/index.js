@@ -39,5 +39,10 @@ router.get('/film/:id',controllers.film.info)
 router.get('/review/:id', controllers.review.list)
 //GET用来获取用户信息
 router.get('/my/:id', controllers.my.info)
+//POST用来添加用户信息
+router.post('/my', validationMiddleware,controllers.my.add)
+
+//POST用来获取用户信息
+router.post('/review', validationMiddleware, controllers.review.add)
 
 module.exports = router

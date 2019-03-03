@@ -4,9 +4,14 @@
 	"miniprogramRoot": "client/",
 	"qcloudRoot": "server/",
 	"setting": {
-		"newFeature": true
+		"urlCheck": true,
+		"es6": true,
+		"postcss": true,
+		"minified": true,
+		"newFeature": true,
+		"autoAudits": false
 	},
-	"appid": "appID",
+	"appid": "wxc355aee7f37396be",
 	"projectname": "film",
 	"condition": {
 		"search": {

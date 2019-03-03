@@ -54,12 +54,18 @@ Page({
     let userInfo = []
     for (let i = 0; i < reviewList.length;i++){
         let userId = reviewList[i].userId
+        let id = reviewList[i].id
+        let filmId = reviewList[i].filmId
         qcloud.request({
           url: config.service.userInfo + userId,
           success: result =>{
             let users = result.data.data[0]
+            console.log('1')
+            console.log(users)
             
             userInfo.push({
+              id:id,
+              filmId:filmId,
               userId: users.id,
               userName: users.userName,
               userImage: users.userImage,
@@ -68,7 +74,7 @@ Page({
             this.setData({
               userInfo: userInfo
             })
-            console.log(userInfo)
+            console.log('1111111'+userInfo)
           },
           fail: result => {
            console.log("erro")
@@ -82,6 +88,7 @@ Page({
    */
   onLoad: function (options) {
     this.getReviewList(options.id)
+    console.log(options.id)
     this.setData({
       id:options.id
     })

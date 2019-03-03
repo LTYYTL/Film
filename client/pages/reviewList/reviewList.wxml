@@ -1,6 +1,6 @@
 <!--pages/reviewList/reviewList.wxml-->
 <view class='allRow' wx:for='{{userInfo}}'>
-  <navigator class='review-card' wx:for='{{[userInfo[index]]}}' wx:for-item='pitem'>
+  <navigator class='review-card' wx:for='{{[userInfo[index]]}}' wx:for-item='pitem' url='/pages/reviewInfo/reviewInfo?id={{pitem.id}}&&filmId={{pitem.filmId}}&&userId={{pitem.userId}}&&reviewContant={{pitem.reviewContant}}'>
     <view class='user'>
       <image class='userHead' src='{{pitem.userImage}}'></image>
       <view class='userName'>{{pitem.userName}}</view>

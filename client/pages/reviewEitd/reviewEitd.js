@@ -1,18 +1,102 @@
 // pages/reviewEitd/reviewEitd.js
+const qcloud = require('../../vendor/wafer2-client-sdk/index')
+const config = require('../../config')
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
+    canIUse: wx.canIUse('button.open-type.getUserInfo'),
+    userInfo:[],
+    filmInfo:[],
+    reviewContant:'',
+    filmId:''
+  },
 
+
+
+  //数据封装
+  dataPackage(){
+    let userName = this.data.userInfo.nickName
+    let userImage = this.data.userInfo.avatarUrl
+    let filmImage = this.data.filmInfo.image
+    let filmTitle = this.data.filmInfo.title
+    wx.navigateTo({
+      url: '/pages/reviewShow/reviewShow?userName=' + userName + '&&userImage=' + userImage + '&&filmImage=' + filmImage + '&&filmTitle=' + filmTitle + '&&reviewContant=' + this.data.reviewContant + '&&filmId=' + this.data.filmId,
+    })
+  },
+
+  //完成跳转
+  finishReview(){
+    let that = this
+    wx.getSetting({
+      success(res) {
+        if (res.authSetting['scope.userInfo']) {
+          // 已经授权，可以直接调用 getUserInfo 获取头像昵称
+          wx.getUserInfo({
+            success(res) {
+              that.setData({
+                userInfo: res.userInfo
+              })
+              console.log(res.userInfo)
+            }
+          })
+        }
+      }
+    })
+    
+  },
+
+  //获取用户输入
+  reviewContantInput: function (e) {
+    console.log(e.detail.value)
+    this.setData({
+      reviewContant: e.detail.value
+    })
+  },
+
+  //获得电影信息
+  getFilmInfo(id) {
+    qcloud.request({
+      url: config.service.filmInfo + id,
+      success: result => {
+        console.log(result.data.data)
+        wx.hideLoading();
+        if (!result.data.code) {
+          this.setData({
+            filmInfo: result.data.data,
+          })
+        } else {
+          setTimeout(() => {
+            wx.navigateBack()
+          }, 2000);
+        }
+      },
+      fail: result => {
+        setTimeout(() => {
+          wx.navigateBack()
+        }, 2000);
+      }
+    })
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+      this.getFilmInfo(options.id)
+      this.finishReview()
+      let reviewContant =''
+      if(options.reviewContant===''){
+        reviewContant = ''
+      }else{
+        reviewContant = options.reviewContant
+      }
+      this.setData({
+        filmId: options.id,
+        reviewContant: reviewContant
+      })
   },
 
   /**

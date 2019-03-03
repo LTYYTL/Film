@@ -9,4 +9,11 @@ module.exports = {
       ctx.state.data = {}
     }
   },
+
+  add: async ctx =>{
+    userId =  ctx.state.$wxInfo.userinfo.openId
+    filmId = + ctx.request.body.filmId
+    reviewContant = ctx.request.body.reviewContant || ''
+    await DB.query('INSERT INTO reviews(userId,filmId,reviewContant) VALUES(?,?,?)', [userId, filmId, reviewContant])
+  }
 }

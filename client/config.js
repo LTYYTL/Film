@@ -33,7 +33,13 @@ var config = {
         reviewList: `${host}/weapp/review/`,
 
          //获取指定用户信息
-        userInfo: `${host}/weapp/my/`
+        userInfo: `${host}/weapp/my/`,
+
+        //提交评论
+        addReview: `${host}/weapp/review`,
+
+         //提交评论
+        addUser: `${host}/weapp/my`
     }
 };
 

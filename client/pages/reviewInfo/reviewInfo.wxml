@@ -1,16 +1,15 @@
 <!--pages/reviewInfo/reviewInfo.wxml-->
 <view class='all'>
   <view class='film'>
-      <view class='filmTitle'>复仇者联盟</view>
+      <view class='filmTitle'>{{filmInfo.title}}</view>
       <view class='review'>
           <view class='user'>
-              <image class='userHead' src='../image/p449619623.jpg'></image>
-              <view class='userName'>徐妍的影评</view>
+              <image class='userHead' src='{{myInfo.userImage}}'></image>
+              <view class='userName'>{{myInfo.userName}}的影评</view>
           </view>
           <view class='info'>
             <image class='contantImage' src='../image/contant.png'></image>
-            <scroll-view scroll-y="true" class='reviewInfo'>
-              dassssssssssssssssssssssssssssssssssssssssssssssssssssss
+            <scroll-view scroll-y="true" class='reviewInfo'>{{reviewContant}}
             </scroll-view>
           </view>
       </view>
@@ -19,12 +18,12 @@
               <image class='collectionImage' src='../image/star.png'></image>
               <view class='collectionReview'>收藏影评</view>
           </view>
-          <view class='addBtn'>
+          <view class='addBtn' bindtap='goAddReview'>
               <image class='addImage' src='../image/edtio.png'></image>
               <view class='addReview'>写影评</view>
           </view>
       </view>
   </view>
-  <image class='filmImage' src='../image/p449619623.jpg'></image>
+  <image class='filmImage' src='{{filmInfo.image}}'></image>
 </view>
 
