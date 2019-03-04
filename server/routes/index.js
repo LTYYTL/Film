@@ -42,7 +42,19 @@ router.get('/my/:id', controllers.my.info)
 //POST用来添加用户信息
 router.post('/my', validationMiddleware,controllers.my.add)
 
-//POST用来获取用户信息
+//POST用来添加影评
 router.post('/review', validationMiddleware, controllers.review.add)
+
+//POST用来添加收藏
+router.post('/collection', validationMiddleware, controllers.collection.add)
+
+//GET用来获取收藏信息
+router.get('/collection/:id', validationMiddleware,controllers.collection.decide)
+
+//GET用来获取相应用户的收藏信息
+router.get('/collection', validationMiddleware, controllers.collection.userDecide)
+
+//GET用来获取相应影评信息
+router.get('/getreview/:id', controllers.getreview.info)
 
 module.exports = router

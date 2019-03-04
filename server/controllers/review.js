@@ -10,6 +10,7 @@ module.exports = {
     }
   },
 
+
   add: async ctx =>{
     userId =  ctx.state.$wxInfo.userinfo.openId
     filmId = + ctx.request.body.filmId

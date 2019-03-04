@@ -29,7 +29,7 @@ var config = {
         //获取指定电影信息
         filmInfo: `${host}/weapp/film/`,
 
-        //获取指定电影信息
+        //获取指定影评信息
         reviewList: `${host}/weapp/review/`,
 
          //获取指定用户信息
@@ -38,8 +38,20 @@ var config = {
         //提交评论
         addReview: `${host}/weapp/review`,
 
-         //提交评论
-        addUser: `${host}/weapp/my`
+         //添加用户
+        addUser: `${host}/weapp/my`,
+
+        //添加收藏
+        addCollection: `${host}/weapp/collection`,
+
+        //查找收藏
+        checkCollection: `${host}/weapp/collection/`,
+
+        //查找对应用户的收藏
+        selectCollection: `${host}/weapp/collection`,
+
+        //获取相应影评的信息
+        reviewInfo: `${host}/weapp/getreview/`
     }
 };
 

@@ -1,50 +1,18 @@
 <!--pages/user/user.wxml-->
 <view class='top'>收藏的影评</view>
-<view class='all'>
-  <navigator class='film-card'>
-          <image class='filmImage' src='../image/p449619623.jpg'></image>
+<view class='all' wx:for='{{collectionInfo}}'>
+  <navigator class='film-card'  wx:for='{{[collectionInfo[index]]}}' wx:for-item='pitem'>
+          <image class='filmImage' src='{{pitem.filmImage}}'></image>
           <view class='filmInfo'>
-              <view class='filmTitle'>复仇者联盟3：无限战争</view>
-              <view class='filmContant'>比一个科技领先全世界n年的国家堪比黑科技般堪比黑科,比一个科技领先全世界n年的国家</view>
+              <view class='filmTitle'>{{pitem.filmTitle}}</view>
+              <view class='filmContant'>{{pitem.reviewContant}}</view>
               <view class='user'>
-                  <image class='userHead' src='../image/p449619623.jpg'></image>
-                  <view class='userName'>徐妍</view>
+                  <image class='userHead' src='{{pitem.userImage}}'></image>
+                  <view class='userName'>{{pitem.userName}}</view>
               </view>
           </view>
   </navigator>
-  <navigator class='film-card'>
-          <image class='filmImage' src='../image/p449619623.jpg'></image>
-          <view class='filmInfo'>
-              <view class='filmTitle'>复仇者联盟3：无限战争</view>
-              <view class='filmContant'>比一个科技领先全世界n年的国家堪比黑科技般堪比黑科,比一个科技领先全世界n年的国家</view>
-              <view class='user'>
-                  <image class='userHead' src='../image/p449619623.jpg'></image>
-                  <view class='userName'>徐妍</view>
-              </view>
-          </view>
-  </navigator>
-  <navigator class='film-card'>
-          <image class='filmImage' src='../image/p449619623.jpg'></image>
-          <view class='filmInfo'>
-              <view class='filmTitle'>复仇者联盟3：无限战争</view>
-              <view class='filmContant'>比一个科技领先全世界n年的国家堪比黑科技般堪比黑科,比一个科技领先全世界n年的国家</view>
-              <view class='user'>
-                  <image class='userHead' src='../image/p449619623.jpg'></image>
-                  <view class='userName'>徐妍</view>
-              </view>
-          </view>
-  </navigator>
-   <navigator class='film-card'>
-          <image class='filmImage' src='../image/p449619623.jpg'></image>
-          <view class='filmInfo'>
-              <view class='filmTitle'>复仇者联盟3：无限战争</view>
-              <view class='filmContant'>比一个科技领先全世界n年的国家堪比黑科技般堪比黑科,比一个科技领先全世界n年的国家</view>
-              <view class='user'>
-                  <image class='userHead' src='../image/p449619623.jpg'></image>
-                  <view class='userName'>徐妍</view>
-              </view>
-          </view>
-  </navigator>
+  
 </view>
-<view class='backHome'>回到首页</view>
+<view class='backHome' bindtap='goBackHome'>回到首页</view>
 

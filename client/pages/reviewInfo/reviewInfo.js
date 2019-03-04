@@ -10,7 +10,9 @@ Page({
   data: {
     filmInfo:[],
     myInfo:[],
-    reviewContant:''
+    reviewContant:'',
+    reviewId:'',
+    imageState:'f'
   },
 
   //添加影评
@@ -28,7 +30,57 @@ Page({
         console.log(res.errMsg)
       }
     })
+  },
 
+  //添加收藏
+  collectionBtn(){
+    qcloud.request({
+      url:config.service.addCollection,
+      method: 'POST',
+      login: true,
+      data:{
+        reviewId:this.data.reviewId
+      },
+      success: result =>{
+        wx.showToast({
+          title: '收藏成功',
+        })
+        this.setData({
+          imageState:'t'
+        })
+      },
+      fail : result =>{
+        wx.showToast({
+          icon: 'none',
+          title: '收藏失败',
+        })
+      }
+    })
+  },
+
+  //查看是否收藏
+  checkCollection(reviewId){
+    qcloud.request({
+      url: config.service.checkCollection + reviewId,
+      login:true,
+      success: result => {
+       console.log(result.data.data.id)
+        if (result.data.data.id === undefined){
+          this.setData({
+            imageState: 'f'
+          })
+        }else{
+          this.setData({
+            imageState: 't'
+          })
+        }  
+      },
+      fail: result => {
+        this.setData({
+          imageState: 'f'
+        })
+      }
+    })
   },
 
 //获得电影信息
@@ -88,8 +140,10 @@ Page({
     this.getFilmInfo(options.filmId)
     this.getUserInfo(options.userId)
     this.setData({
-      reviewContant: options.reviewContant
+      reviewContant: options.reviewContant,
+      reviewId:options.id
     })
+    this.checkCollection(options.id)
    
   },
 

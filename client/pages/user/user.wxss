@@ -40,8 +40,8 @@ page{
 }
 
 .filmTitle{
-  font-size: 35rpx;
-  line-height: 49rpx;
+  font-size: 30rpx;
+  line-height: 42rpx;
   font-weight: 800;
   margin-bottom: 20rpx;
   
@@ -82,10 +82,10 @@ page{
 
 .backHome{
   width: 750rpx;
-  height: 15%;
-  position: relative;
+  height: 8%;
+  position: absolute;
   background-color: white;
-  top: 90%;
+  top: 92%;
   display: flex;
   align-items: center;
   justify-content: center;
