@@ -17,7 +17,13 @@ Page({
    this.getFilmList();
   },
 
-  getFilmList(){
+  onPullDownRefresh() {//下拉刷新
+    this.getFilmList(() => {
+      wx.stopPullDownRefresh()
+    })
+  },
+
+  getFilmList(callback){
     wx.showLoading({
       title: '电影数据加载中...',
     })
@@ -40,6 +46,9 @@ Page({
         wx.showToast({
           title: '电影数据加载失败',
         })
+      }, 
+      complete: () => {//有回调就回调
+        callback && callback()
       }
     })
   },

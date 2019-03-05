@@ -18,7 +18,7 @@
               <image wx:if="{{imageState==='f'}}" class='collectionImage' src='../image/star.png'></image>
               <image wx:if="{{imageState==='t'}}" class='collectionImage' src='../image/finishstar.png'></image>
               <view wx:if="{{imageState==='f'}}" class='collectionReview'>收藏影评</view>
-              <view wx:if="{{imageState==='t'}}" class='collectionReview'>收藏完成</view>
+              <view wx:if="{{imageState==='t'}}" class='collectionReview'>取消收藏</view>
           </view>
           <view class='addBtn' bindtap='goAddReview'>
               <image class='addImage' src='../image/edtio.png'></image>

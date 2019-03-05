@@ -51,7 +51,10 @@ var config = {
         selectCollection: `${host}/weapp/collection`,
 
         //获取相应影评的信息
-        reviewInfo: `${host}/weapp/getreview/`
+        reviewInfo: `${host}/weapp/getreview/`,
+
+        //获取所有影评的信息
+        allReview: `${host}/weapp/getreview`
     }
 };
 

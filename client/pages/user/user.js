@@ -13,7 +13,10 @@ Page({
     filmImage:'',
     userName:'',
     userImage:'',
-    reviewContant:''
+    reviewContant:'',
+    filmId: '',
+    userId: '',
+    reviewId: ''
   },
 
   goBackHome() {
@@ -45,7 +48,7 @@ Page({
       qcloud.request({
         url: config.service.reviewInfo + collectionId,
         success: result =>{
-          this.backPackageFilm(collectionInfo,result.data.data[0])
+          this.backPackageFilm(collectionInfo, result.data.data[0], collectionId)
           //this.backPackageUser(result.data.data[0])
           //this.backPackageCollection(collectionInfo, result.data.data[0].reviewContant)
           
@@ -59,7 +62,9 @@ Page({
     }
   },
 
-  backPackageFilm(collectionInfo,reviewInfo){
+  backPackageFilm(collectionInfo, reviewInfo, reviewId){
+    let filmId = reviewInfo.filmId
+    let userId = reviewInfo.userId
     qcloud.request({
       url: config.service.filmInfo + reviewInfo.filmId,
       success: result => {
@@ -72,6 +77,9 @@ Page({
             let userImage = result.data.data[0].userImage
             let userName = result.data.data[0].userName
             collectionInfo.push({
+              filmId: filmId,
+              userId: userId,
+              reviewId: reviewId,
               filmTitle: filmTitle,
               filmImage: filmImage,
               userName: userName,
@@ -79,6 +87,9 @@ Page({
               reviewContant: reviewInfo.reviewContant
             })
             this.setData({
+              filmId: filmId,
+              userId: userId,
+              reviewId: reviewId,
               filmTitle: filmTitle,
               filmImage: filmImage,
               userImage: userImage,

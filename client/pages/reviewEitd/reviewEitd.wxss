@@ -2,7 +2,11 @@
 page{
   background-color: rgb(241, 241, 241);
 }
-
+.ad{
+  background-color: red;
+  width: 100rpx;
+  height: 50rpx;
+}
 .filmImage{
   position: absolute;
   top: 3%;

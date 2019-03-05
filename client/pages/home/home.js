@@ -11,7 +11,14 @@ Page({
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
     isHide: false,
     userName:'',
-    userImage:''
+    userImage:'',
+    reviewList:[],
+    userId:'',
+    filmId:0,
+    film:[],
+    user:[],
+    reviewId:0,
+    reviewContant:''
   },
 
   goFilmList(){
@@ -23,6 +30,88 @@ Page({
   goMy() {
     wx.navigateTo({
       url: '/pages/user/user',
+    })
+  },
+
+  goFilmInfo(){
+    wx.navigateTo({
+      url: '/pages/filmInfo/filmInfo?id='+this.data.filmId,
+    })
+  },
+
+  goReviewInfo() {
+    wx.navigateTo({
+      url: '/pages/reviewInfo/reviewInfo?id=' + this.data.reviewId + '&&filmId=' + this.data.filmId + '&&userId=' + this.data.userId + '&&reviewContant=' + this.data.reviewContant ,
+    })
+  },
+//随机获取
+  randomNum(minNum, maxNum) {
+    switch (arguments.length) {
+      case 1:
+        return parseInt(Math.random() * minNum + 1, 10);
+        break;
+      case 2:
+        return parseInt(Math.random() * (maxNum - minNum + 1) + minNum, 10);
+        break;
+      default:
+        return 0;
+        break;
+    }
+  } ,
+  //获得随机影评
+  getReview(){
+    let reviewList =[]
+    let number = 0
+      qcloud.request({
+        url:config.service.allReview,
+        success: result=>{
+          console.log(result.data.data.length)
+          number = this.randomNum(0, result.data.data.length)
+          reviewList = result.data.data[number]
+          console.log(reviewList)
+          this.setData({
+            reviewId:reviewList.id,
+            reviewContant: reviewList.reviewContant,
+            userId: reviewList.userId,
+            filmId: reviewList.filmId,
+          })
+          this.getFilmInfo()
+          this.getUserInfo()
+        },
+        fail:result=>{
+
+        }
+      })
+  },
+
+//获得电影信息
+  getFilmInfo() {
+    qcloud.request({
+      url: config.service.filmInfo + this.data.filmId,
+      success: result => {
+          this.setData({
+            film: result.data.data,
+          })
+      },
+      fail: result => {
+        console.log(result)
+      }
+    })
+  },
+
+  //获得用户信息
+  getUserInfo() {
+    qcloud.request({
+      url: config.service.userInfo + this.data.userId,
+      success: result => {
+        console.log(result.data.data)
+        this.setData({
+          user: result.data.data[0],
+        })
+      },
+      fail: result => {
+        console.log(result)
+      }
     })
   },
 
@@ -92,6 +181,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    this.getReview()
     var that = this;
     // 查看是否授权
     wx.getSetting({

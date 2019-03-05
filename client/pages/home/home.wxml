@@ -19,11 +19,11 @@
  
 <view wx:else>
     <view class='all'>
-      <image class='filmImage' src='../image/p449619623.jpg'></image>
-      <view class='filmName'>复仇者联盟3：无限战争</view>
+      <image class='filmImage' src='{{film.image}}' bindtap='goFilmInfo'></image>
+      <view class='filmName'>{{film.title}}</view>
       <view class='user-film'>
-        <image class='userImage' src='../image/p449619623.jpg'></image>
-        <view class='userName'>史密斯给你推荐了一部电影</view>
+        <image class='userImage' src='{{user.userImage}}' bindtap='goReviewInfo'></image>
+        <view class='userName'>{{user.userName}}给你推荐了一部电影</view>
       </view>
     </view>
       <view class='bottoms'>

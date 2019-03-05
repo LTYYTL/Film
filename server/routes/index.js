@@ -33,12 +33,16 @@ router.get('/message', controllers.message.get)
 router.post('/message', controllers.message.post)
 //GET用来获取全部电影
 router.get('/film', controllers.film.list)
+
 //GET 获取某一个电影
 router.get('/film/:id',controllers.film.info)
+
 //GET 获取某一个电影的影评
 router.get('/review/:id', controllers.review.list)
+
 //GET用来获取用户信息
 router.get('/my/:id', controllers.my.info)
+
 //POST用来添加用户信息
 router.post('/my', validationMiddleware,controllers.my.add)
 
@@ -56,5 +60,8 @@ router.get('/collection', validationMiddleware, controllers.collection.userDecid
 
 //GET用来获取相应影评信息
 router.get('/getreview/:id', controllers.getreview.info)
+
+//GET用来获取所有影评信息
+router.get('/getreview', controllers.getreview.all)
 
 module.exports = router

@@ -5,9 +5,13 @@
       <view class='review'>
           <input type='text' confirm-type='done' placeholder='请输入你的影评内容' class='inputText' bindinput='reviewContantInput'>{{reviewContant}}</input>
       </view>
-      <view class='btns' bindtap='radioBtn'>
+      <view class='btns' wx:if="{{state==='begin'}}" bindtap='radioBtn'>
         <image class='radioImage' src='../image/radio.png'></image>
-        <view class='radioContant'>录音</view>
+        <view class='radioContant' >录音</view>
+      </view>
+      <view class='btns' wx:if="{{state==='star'}}" bindtap='stopRecord'>
+        <image class='radioImage' src='../image/radio.png'></image>
+        <view class='radioContant'>停止</view>
       </view>
   </view>
   <image class='filmImage' src='{{filmInfo.image}}'></image>

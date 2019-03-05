@@ -1,7 +1,7 @@
 <!--pages/user/user.wxml-->
 <view class='top'>收藏的影评</view>
 <view class='all' wx:for='{{collectionInfo}}'>
-  <navigator class='film-card'  wx:for='{{[collectionInfo[index]]}}' wx:for-item='pitem'>
+  <navigator class='film-card'  wx:for='{{[collectionInfo[index]]}}' wx:for-item='pitem'url='/pages/reviewInfo/reviewInfo?id={{pitem.reviewId}}&&filmId={{pitem.filmId}}&&userId={{pitem.userId}}&&reviewContant={{pitem.reviewContant}}'>
           <image class='filmImage' src='{{pitem.filmImage}}'></image>
           <view class='filmInfo'>
               <view class='filmTitle'>{{pitem.filmTitle}}</view>

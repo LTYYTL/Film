@@ -1,7 +1,10 @@
 const DB = require('../utils/db.js');
 
 module.exports = {
-
+  all: async ctx => {
+    ctx.state.data = await DB.query("SELECT * FROM reviews")
+  },
+  
   info: async ctx => {
     reviewId = + ctx.params.id
     if (!isNaN(reviewId)) {
@@ -10,5 +13,8 @@ module.exports = {
       ctx.state.data = {}
     }
   },
+
+ 
+
 
 }

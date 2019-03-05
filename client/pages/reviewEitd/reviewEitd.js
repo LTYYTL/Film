@@ -11,10 +11,37 @@ Page({
     userInfo:[],
     filmInfo:[],
     reviewContant:'',
-    filmId:''
+    filmId:'',
+    state:'begin'
   },
 
+/**
+  * 提示
+  */
+  tip: function (msg) {
+    wx.showModal({
+      title: '提示',
+      content: msg,
+      showCancel: false
+    })
+  },
 
+//录音
+  radioBtn(){
+    this.recorderManager.start({
+      format: 'mp3'
+    });
+    this.setData({
+      state:'star'
+    })
+  },
+
+  stopRecord(){
+    this.recorderManager.stop()
+    this.setData({
+      state: 'begin'
+    })
+  },
 
   //数据封装
   dataPackage(){
@@ -97,6 +124,25 @@ Page({
         filmId: options.id,
         reviewContant: reviewContant
       })
+
+    var that = this;
+    this.recorderManager = wx.getRecorderManager();
+    this.recorderManager.onError(function () {
+      that.tip("录音失败！")
+    });
+    this.recorderManager.onStop(function (res) {
+      that.setData({
+        src: res.tempFilePath
+      })
+      console.log(res.tempFilePath)
+      that.tip("录音完成！")
+    });
+
+    this.innerAudioContext = wx.createInnerAudioContext();
+    this.innerAudioContext.onError((res) => {
+      that.tip("播放录音失败！")
+    })
+
   },
 
   /**

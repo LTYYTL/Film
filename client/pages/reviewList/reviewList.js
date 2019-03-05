@@ -20,7 +20,7 @@ Page({
   },
 
   //获得所有的影评
-  getReviewList(id) {
+  getReviewList(id, callback) {
     wx.showLoading({
       title: '影评加载中...',
     })
@@ -45,6 +45,9 @@ Page({
         setTimeout(() => {
           wx.navigateBack()
         }, 2000);
+      },
+      complete: () => {//有回调就回调
+        callback && callback()
       }
     })
   },
@@ -83,6 +86,11 @@ Page({
     }
   },
 
+  onPullDownRefresh() {//下拉刷新
+    this.getReviewList(this.data.id,() => {
+      wx.stopPullDownRefresh()
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */
