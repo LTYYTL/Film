@@ -132,3 +132,15 @@ page{
   width: 70rpx;
   height: 70rpx;
 }
+
+.voiceImage{
+  width: 100rpx;
+  height: 100rpx;
+  margin-right: 10rpx;
+  flex-shrink: 0;
+  border-radius: 50%;
+}
+
+.voice-item{
+  margin: 10rpx;
+}

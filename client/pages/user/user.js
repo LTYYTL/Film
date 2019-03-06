@@ -16,7 +16,8 @@ Page({
     reviewContant:'',
     filmId: '',
     userId: '',
-    reviewId: ''
+    reviewId: '',
+    timeOfAudio:0
   },
 
   goBackHome() {
@@ -31,11 +32,11 @@ Page({
       url: config.service.selectCollection,
       login: true,
       success: result => {
-        //console.log(result.data.data)
+        console.log(result)
         this.getReviewInfo(result.data.data)
       },
       fail: result => {
-        console.log(result.data.data)
+        console.log(result)
       }
     })
   },
@@ -84,7 +85,8 @@ Page({
               filmImage: filmImage,
               userName: userName,
               userImage: userImage,
-              reviewContant: reviewInfo.reviewContant
+              reviewContant: reviewInfo.reviewContant,
+              timeOfAudio: reviewInfo.timeOfAudio
             })
             this.setData({
               filmId: filmId,

@@ -9,9 +9,12 @@
           </view>
           <view class='info'>
             <image class='contantImage' src='../image/contant.png'></image>
-            <scroll-view scroll-y="true" class='reviewInfo'>
+            <scroll-view scroll-y="true" class='reviewInfo' wx:if="{{type===0}}">
               {{reviewContant}}
             </scroll-view>
+            <view type='text'  class='inputTex' wx:if="{{type===1}}" bindtap='onPlayVoice'>
+              <view class='voice-item'>))){{timeOfAudio}}"</view>
+            </view>
           </view>
       </view>
       <view class='btns'>

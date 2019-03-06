@@ -9,8 +9,12 @@
           </view>
           <view class='info'>
             <image class='contantImage' src='../image/contant.png'></image>
-            <scroll-view scroll-y="true" class='reviewInfo'>{{reviewContant}}
+            <scroll-view scroll-y="true" class='reviewInfo' wx:if='{{timeOfAudio===0}}'>{{reviewContant}}
             </scroll-view>
+              <view class='reviewInfo' wx:if="{{timeOfAudio!==0}}" bindtap='onPlayVoice'>
+              <image class = 'voiceImage' src='../image/note.png'></image>
+                <view class='voice-item'>))){{timeOfAudio}}"</view>
+              </view>
           </view>
       </view>
       <view class='btns'>
@@ -20,9 +24,13 @@
               <view wx:if="{{imageState==='f'}}" class='collectionReview'>收藏影评</view>
               <view wx:if="{{imageState==='t'}}" class='collectionReview'>取消收藏</view>
           </view>
-          <view class='addBtn' bindtap='goAddReview'>
+          <view class='addBtn' bindtap='goAddReview' wx:if="{{addState==='f'}}">
               <image class='addImage' src='../image/edtio.png'></image>
               <view class='addReview'>写影评</view>
+          </view>
+          <view class='addBtn' bindtap='goOneAddReview' wx:if="{{addState==='t'}}">
+              <image class='addImage' src='../image/edtio.png'></image>
+              <view class='addReview'>自己影评</view>
           </view>
       </view>
   </view>

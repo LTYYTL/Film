@@ -76,7 +76,7 @@ Page({
             filmId: reviewList.filmId,
           })
           this.getFilmInfo()
-          this.getUserInfo()
+          this.getMyInfo()
         },
         fail:result=>{
 
@@ -100,7 +100,7 @@ Page({
   },
 
   //获得用户信息
-  getUserInfo() {
+  getMyInfo() {
     qcloud.request({
       url: config.service.userInfo + this.data.userId,
       success: result => {

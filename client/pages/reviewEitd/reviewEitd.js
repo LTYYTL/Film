@@ -1,6 +1,9 @@
 // pages/reviewEitd/reviewEitd.js
 const qcloud = require('../../vendor/wafer2-client-sdk/index')
 const config = require('../../config')
+const recorderManager = wx.getRecorderManager()//调用录音借口函数
+const innerAudioContext = wx.createInnerAudioContext()//调用播放语音借口函数
+
 Page({
 
   /**
@@ -12,35 +15,56 @@ Page({
     filmInfo:[],
     reviewContant:'',
     filmId:'',
-    state:'begin'
+    state:'begin',
+    states: '',
+    src:'',
+    timeOfAudio:0,
+    addtype:''
   },
 
-/**
-  * 提示
-  */
-  tip: function (msg) {
-    wx.showModal({
-      title: '提示',
-      content: msg,
-      showCancel: false
+onPlayVoice(){
+  innerAudioContext.src = this.data.src
+  innerAudioContext.onPlay(() => {
+    console.log('开始播放', this.data.src)
+  })
+  innerAudioContext.onError((res) => {
+    wx.showToast({
+      icon: 'none',
+      title: '录音失败'
     })
-  },
+    console.log(res.errMsg)
+    console.log(res.errCode)
+  })
+  innerAudioContext.play()
+  this.setData({
+    state: 'begin'
+  })
+},
 
 //录音
   radioBtn(){
-    this.recorderManager.start({
+    recorderManager.start({
       format: 'mp3'
     });
     this.setData({
-      state:'star'
+      state:'star',
+      
     })
   },
 
   stopRecord(){
-    this.recorderManager.stop()
-    this.setData({
-      state: 'begin'
+    
+    recorderManager.onStop((res) =>{
+      const { tempFilePath } = res
+      let timeOfAudio = Math.floor(res.duration / 1000)
+      this.setData({
+        src: res.tempFilePath,
+        timeOfAudio: timeOfAudio,
+        state: 'begin',
+        states:'play'
+      })
     })
+    recorderManager.stop()
   },
 
   //数据封装
@@ -49,9 +73,17 @@ Page({
     let userImage = this.data.userInfo.avatarUrl
     let filmImage = this.data.filmInfo.image
     let filmTitle = this.data.filmInfo.title
+    let reviewContant = encodeURIComponent(this.data.src)
+    console.log(reviewContant)
+    if(reviewContant===undefined){
+      wx.navigateTo({
+        url: '/pages/reviewShow/reviewShow?userName=' + userName + '&&userImage=' + userImage + '&&filmImage=' + filmImage + '&&filmTitle=' + filmTitle + '&&reviewContant=' + this.data.reviewContant + '&&filmId=' + this.data.filmId,
+      })
+    }
     wx.navigateTo({
-      url: '/pages/reviewShow/reviewShow?userName=' + userName + '&&userImage=' + userImage + '&&filmImage=' + filmImage + '&&filmTitle=' + filmTitle + '&&reviewContant=' + this.data.reviewContant + '&&filmId=' + this.data.filmId,
+      url: '/pages/reviewShow/reviewShow?userName=' + userName + '&&userImage=' + userImage + '&&filmImage=' + filmImage + '&&filmTitle=' + filmTitle + '&&reviewContant=' + reviewContant + '&&filmId=' + this.data.filmId + '&&timeOfAudio=' + this.data.timeOfAudio,
     })
+   
   },
 
   //完成跳转
@@ -122,26 +154,10 @@ Page({
       }
       this.setData({
         filmId: options.id,
-        reviewContant: reviewContant
+        reviewContant: reviewContant,
+        addtype: options.addtype
       })
 
-    var that = this;
-    this.recorderManager = wx.getRecorderManager();
-    this.recorderManager.onError(function () {
-      that.tip("录音失败！")
-    });
-    this.recorderManager.onStop(function (res) {
-      that.setData({
-        src: res.tempFilePath
-      })
-      console.log(res.tempFilePath)
-      that.tip("录音完成！")
-    });
-
-    this.innerAudioContext = wx.createInnerAudioContext();
-    this.innerAudioContext.onError((res) => {
-      that.tip("播放录音失败！")
-    })
 
   },
 

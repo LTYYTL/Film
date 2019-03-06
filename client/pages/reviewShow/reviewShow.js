@@ -12,14 +12,26 @@ Page({
     filmTitle: '',
     filmImage: '',
     reviewContant:'',
-    filmId:''
+    filmId:'',
+    type:0,
+    timeOfAudio:0
   },
 
   //重新编辑
   backEdit(){
-    wx.navigateTo({
-      url: '/pages/reviewEitd/reviewEitd?id='+this.data.filmId+'&&reviewContant='+this.data.reviewContant,
-    })
+    let addtype=''
+    if (this.data.timeOfAudio===undefined){
+      addtype = 'word'
+      wx.navigateTo({
+        url: '/pages/reviewEitd/reviewEitd?id=' + this.data.filmId + '&&reviewContant=' + this.data.reviewContant + '&&addtype=' + addtype,
+      })
+    }else{
+      addtype = 'voice'
+      wx.navigateTo({
+        url: '/pages/reviewEitd/reviewEitd?id=' + this.data.filmId + '&&reviewContant=' + this.data.reviewContant + '&&addtype=' + addtype,
+      })
+    }
+    
   },
 
   addreview(){
@@ -28,6 +40,7 @@ Page({
     })
     let filmId = this.data.filmId
     let reviewContant = this.data.reviewContant
+    let timeOfAudio = this.data.timeOfAudio
 
     qcloud.request({
       url: config.service.addReview,
@@ -35,14 +48,15 @@ Page({
       login:true,
       data: {
         filmId :filmId,
-        reviewContant :reviewContant
+        reviewContant :reviewContant,
+        timeOfAudio: timeOfAudio
       },
       success: result => {
         wx.hideLoading()
 
         let data = result.data
         console.log(data)
-
+        this.voiceUpload()
         if (!data.code) {
           wx.showToast({
             title: '发布成功',
@@ -69,19 +83,50 @@ Page({
     
   },
 
+voiceUpload(){
+  wx.uploadFile({
+    url: config.service.uploadUrl,
+    filePath: this.data.reviewContant,
+    name: 'file',
+    formData: {
+      user: 'test'
+    },
+    success(res) {
+      const data = res.data
+      console.log('1111'+data)
+    }
+  })
+},
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    let timeOfAudio = options.timeOfAudio
+    if (timeOfAudio===undefined){
       this.setData({
-        userName:options.userName,
-        userImage:options.userImage,
-        filmTitle:options.filmTitle,
-        filmImage:options.filmImage,
+        userName: options.userName,
+        userImage: options.userImage,
+        filmTitle: options.filmTitle,
+        filmImage: options.filmImage,
         reviewContant: options.reviewContant,
-        filmId: options.filmId
+        filmId: options.filmId,
+        timeOfAudio: 0,
+        type:0,
       })
+    }else{
+      this.setData({
+        userName: options.userName,
+        userImage: options.userImage,
+        filmTitle: options.filmTitle,
+        filmImage: options.filmImage,
+        reviewContant: options.reviewContant,
+        filmId: options.filmId,
+        timeOfAudio: timeOfAudio,
+        type: 1
+      })
+    }
+     
   },
 
   /**

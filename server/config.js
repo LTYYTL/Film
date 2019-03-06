@@ -9,7 +9,7 @@ const CONF = {
   appId: 'wxc355aee7f37396be',
 
     // 微信小程序 App Secret
-  appSecret: '',
+  appSecret: 'fde5fd04817a5a511d4b53ed85dbc7d4',
 
     // 是否使用腾讯云代理登录小程序
     useQcloudLogin: true,
@@ -33,11 +33,11 @@ const CONF = {
          * 地区简称
          * @查看 https://cloud.tencent.com/document/product/436/6224
          */
-        region: 'ap-guangzhou',
+      region: 'ap-beijing',
         // Bucket 名称
-        fileBucket: 'qcloudtest',
+        fileBucket: 'film',
         // 文件夹
-        uploadFolder: '',
+        uploadFolder: 'audios',
       mimetypes: ['audio/x-aac', 'audio/aac', 'audio/mpeg', 'video/webm', 'audio/mp3', 'audio/m4a']
     },
 

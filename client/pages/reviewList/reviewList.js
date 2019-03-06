@@ -72,7 +72,8 @@ Page({
               userId: users.id,
               userName: users.userName,
               userImage: users.userImage,
-              reviewContant: reviewList[i].reviewContant
+              reviewContant: reviewList[i].reviewContant,
+              timeOfAudio: reviewList[i].timeOfAudio,
             })
             this.setData({
               userInfo: userInfo

@@ -1,11 +1,14 @@
 <!--pages/reviewList/reviewList.wxml-->
 <view class='allRow' wx:for='{{userInfo}}'>
-  <navigator class='review-card' wx:for='{{[userInfo[index]]}}' wx:for-item='pitem' url='/pages/reviewInfo/reviewInfo?id={{pitem.id}}&&filmId={{pitem.filmId}}&&userId={{pitem.userId}}&&reviewContant={{pitem.reviewContant}}'>
+  <navigator class='review-card' wx:for='{{[userInfo[index]]}}' wx:for-item='pitem' url='/pages/reviewInfo/reviewInfo?id={{pitem.id}}&&filmId={{pitem.filmId}}&&userId={{pitem.userId}}&&reviewContant={{pitem.reviewContant}}&&timeOfAudio={{pitem.timeOfAudio}}'>
     <view class='user'>
       <image class='userHead' src='{{pitem.userImage}}'></image>
       <view class='userName'>{{pitem.userName}}</view>
     </view>
-    <view class='reviewConant'>{{pitem.reviewContant}}</view>
+    <view class='reviewConant'wx:if='{{pitem.timeOfAudio===0}}'>{{pitem.reviewContant}}</view>
+    <view class='reviewConant' wx:if="{{pitem.timeOfAudio!==0}}" bindtap='onPlayVoice'>
+              <view class='voice-item'>))){{pitem.timeOfAudio}}"</view>
+    </view>
   </navigator>
 </view>
 <view class='backHome' bindtap='goBackHome'>回到首页</view>

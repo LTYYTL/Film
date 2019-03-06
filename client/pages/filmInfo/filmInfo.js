@@ -24,11 +24,18 @@ Page({
   goAddReview() {
     let id = 0;
     id = this.data.id;
+    let addtype =''
     wx.showActionSheet({
       itemList: ['文字', '录音'],
       success: function (res) {
+        if (res.tapIndex === 0) {
+          addtype = 'word'
+        }
+        if (res.tapIndex === 1) {
+          addtype = 'voice'
+        }
         wx.navigateTo({
-          url: '/pages/reviewEitd/reviewEitd?id=' + id,
+          url: '/pages/reviewEitd/reviewEitd?id=' + id + '&&addtype=' + addtype,
         })
       },
       fail: function (res) {

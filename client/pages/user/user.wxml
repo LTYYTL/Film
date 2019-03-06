@@ -1,11 +1,14 @@
 <!--pages/user/user.wxml-->
 <view class='top'>收藏的影评</view>
 <view class='all' wx:for='{{collectionInfo}}'>
-  <navigator class='film-card'  wx:for='{{[collectionInfo[index]]}}' wx:for-item='pitem'url='/pages/reviewInfo/reviewInfo?id={{pitem.reviewId}}&&filmId={{pitem.filmId}}&&userId={{pitem.userId}}&&reviewContant={{pitem.reviewContant}}'>
+  <navigator class='film-card'  wx:for='{{[collectionInfo[index]]}}' wx:for-item='pitem'url='/pages/reviewInfo/reviewInfo?id={{pitem.reviewId}}&&filmId={{pitem.filmId}}&&userId={{pitem.userId}}&&reviewContant={{pitem.reviewContant}}&&timeOfAudio={{pitem.timeOfAudio}}'>
           <image class='filmImage' src='{{pitem.filmImage}}'></image>
           <view class='filmInfo'>
               <view class='filmTitle'>{{pitem.filmTitle}}</view>
-              <view class='filmContant'>{{pitem.reviewContant}}</view>
+              <view class='filmContant 'wx:if="{{pitem.timeOfAudio===0}}">{{pitem.reviewContant}}</view>
+               <view class='filmContant' wx:if="{{pitem.timeOfAudio!==0}}" bindtap='onPlayVoice'>
+                   <view class='voice-item'>))){{pitem.timeOfAudio}}"</view>
+              </view>
               <view class='user'>
                   <image class='userHead' src='{{pitem.userImage}}'></image>
                   <view class='userName'>{{pitem.userName}}</view>

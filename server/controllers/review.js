@@ -14,6 +14,7 @@ module.exports = {
     userId =  ctx.state.$wxInfo.userinfo.openId
     filmId = + ctx.request.body.filmId
     reviewContant = ctx.request.body.reviewContant || ''
-    await DB.query('INSERT INTO reviews(userId,filmId,reviewContant) VALUES(?,?,?)', [userId, filmId, reviewContant])
+    timeOfAudio = +ctx.request.body.timeOfAudio
+    await DB.query('INSERT INTO reviews(userId,filmId,reviewContant,timeOfAudio) VALUES(?,?,?,?)', [userId, filmId, reviewContant, timeOfAudio])
   }
 }

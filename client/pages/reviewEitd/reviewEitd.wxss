@@ -73,6 +73,24 @@ page{
   overflow:hidden; /*超出一行文字自动隐藏 */
   text-overflow:ellipsis;/* 文字隐藏后添加省略号 */
   white-space:nowrap; /*强制不换行*/
+}
+
+.voiceImage{
+  width: 100rpx;
+  height: 100rpx;
+  margin-right: 10rpx;
+  flex-shrink: 0;
+  border-radius: 50%;
+}
+
+.voice-item{
+  margin: 10rpx;
+}
+
+.inputTex{
+  margin-left: 70rpx;
+  margin-right: 70rpx;
+  display: flex
 
 }
 
