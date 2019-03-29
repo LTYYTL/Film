@@ -1,5 +1,8 @@
 <!--pages/user/user.wxml-->
-<view class='top'>收藏的影评</view>
+<view bindtap='switchs'>
+  <view wx:if="{{state==='f'}}" class='top'>收藏的影评</view>
+  <view wx:if="{{state==='t'}}" class='top'>发布的影评</view>
+</view>
 <view class='all' wx:for='{{collectionInfo}}'>
   <navigator class='film-card'  wx:for='{{[collectionInfo[index]]}}' wx:for-item='pitem'url='/pages/reviewInfo/reviewInfo?id={{pitem.reviewId}}&&filmId={{pitem.filmId}}&&userId={{pitem.userId}}&&reviewContant={{pitem.reviewContant}}&&timeOfAudio={{pitem.timeOfAudio}}'>
           <image class='filmImage' src='{{pitem.filmImage}}'></image>

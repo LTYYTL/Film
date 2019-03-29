@@ -59,6 +59,19 @@ page{
   border:1px solid rgb(178, 218, 228);
 }
 
+.collectionBtns{
+  width: 250rpx;
+  height: 60rpx;
+  position: absolute;
+  top: 87%;
+  display: flex;
+  margin-left: 50rpx;
+  padding: 10rpx;
+  align-items: center;
+  justify-content: center;
+  border:1px solid rgb(178, 218, 228);
+}
+
 .collectionImage{
   width: 55rpx;
   height: 55rpx;

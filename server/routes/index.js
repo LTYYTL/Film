@@ -61,6 +61,9 @@ router.get('/collection', validationMiddleware, controllers.collection.userDecid
 //GET用来获取相应影评信息
 router.get('/getreview/:id', controllers.getreview.info)
 
+//post获得用户发布的信息
+router.post('/getreview', controllers.getreview.findUser)
+
 //GET用来获取所有影评信息
 router.get('/getreview', controllers.getreview.all)
 

@@ -14,6 +14,10 @@ module.exports = {
     }
   },
 
+  findUser: async ctx => {
+    userId = ctx.state.$wxInfo.userinfo.openId
+    ctx.state.data = (await DB.query("SELECT * FROM reviews where reviews.userId = ?", [userId]))
+  }
  
 
 

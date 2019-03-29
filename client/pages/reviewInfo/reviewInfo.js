@@ -131,7 +131,23 @@ Page({
       }
     })
   },
-
+//取消收藏
+  collectionBtn(reviewId) {
+    qcloud.request({
+      url: config.service.checkCollection + reviewId,
+      login: true,
+      success: result => {
+          this.setData({
+            imageState: 'f'
+          })
+      },
+      fail: result => {
+        this.setData({
+          imageState: 't'
+        })
+      }
+    })
+  },
   //查看是否收藏
   checkCollection(reviewId){
     qcloud.request({

@@ -79,10 +79,12 @@ onPlayVoice(){
       wx.navigateTo({
         url: '/pages/reviewShow/reviewShow?userName=' + userName + '&&userImage=' + userImage + '&&filmImage=' + filmImage + '&&filmTitle=' + filmTitle + '&&reviewContant=' + this.data.reviewContant + '&&filmId=' + this.data.filmId,
       })
+    }else{
+      wx.navigateTo({
+        url: '/pages/reviewShow/reviewShow?userName=' + userName + '&&userImage=' + userImage + '&&filmImage=' + filmImage + '&&filmTitle=' + filmTitle + '&&reviewContant=' + reviewContant + '&&filmId=' + this.data.filmId + '&&timeOfAudio=' + this.data.timeOfAudio,
+      })
     }
-    wx.navigateTo({
-      url: '/pages/reviewShow/reviewShow?userName=' + userName + '&&userImage=' + userImage + '&&filmImage=' + filmImage + '&&filmTitle=' + filmTitle + '&&reviewContant=' + reviewContant + '&&filmId=' + this.data.filmId + '&&timeOfAudio=' + this.data.timeOfAudio,
-    })
+    
    
   },
 

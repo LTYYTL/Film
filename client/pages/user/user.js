@@ -17,7 +17,8 @@ Page({
     filmId: '',
     userId: '',
     reviewId: '',
-    timeOfAudio:0
+    timeOfAudio:0,
+    state:'f',
   },
 
   goBackHome() {
@@ -25,7 +26,34 @@ Page({
       url: '/pages/home/home',
     })
   },
+//转换按钮
+  switchs(){
+    let state = this.data.state;
+    if(state==='f'){
+      this.setData({
+        state:'t'
+      })
+    }else{
+      this.setData({
+        state: 't'
+      })
+      this.getCollection();
+    }
+  },
+//获得发布信息
+getRelease(){
+  qcloud.request({
+    url:config.service.findUser,
+    login: true,
+    success:result =>{
+      console.log(result)
+     
+    },
+    fail:result=>{
 
+    }
+  })
+},
   //获取对应用户收藏信息
   getCollection() {
     qcloud.request({

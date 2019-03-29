@@ -54,7 +54,10 @@ var config = {
         reviewInfo: `${host}/weapp/getreview/`,
 
         //获取所有影评的信息
-        allReview: `${host}/weapp/getreview`
+        allReview: `${host}/weapp/getreview`,
+
+        //获取用户所有影评的信息
+        findUser: `${host}/weapp/getreview`
     }
 };
 
