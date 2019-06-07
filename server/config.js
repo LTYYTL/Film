@@ -1,15 +1,15 @@
 const CONF = {
     port: '5757',
     rootPathname: '',
-    qcloudAppId: '1258497394',
-    qcloudSecretId: 'AKIDUm8Uigvwx4zpjPnnHgxH1NBlvx15qpbG',
-    qcloudSecretKey: 'dF1Z4KURSFmBPvCwTpv9OWB6mJQZY15R',
+    qcloudAppId: '',
+    qcloudSecretId: '',
+    qcloudSecretKey: '',
 
     // 微信小程序 App ID
-  appId: 'wxc355aee7f37396be',
+  appId: '',
 
     // 微信小程序 App Secret
-  appSecret: 'fde5fd04817a5a511d4b53ed85dbc7d4',
+  appSecret: '',
 
     // 是否使用腾讯云代理登录小程序
     useQcloudLogin: false,
